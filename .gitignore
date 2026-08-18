@@ -1,0 +1,5 @@
+.DS_Store
+.vercel
+.claude/settings.local.json
+.leads-check-state.json
+node_modules

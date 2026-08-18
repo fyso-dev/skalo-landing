@@ -1,0 +1,7 @@
+{
+  "name": "skalo-landing",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Landing de Skalo — skalo.ai"
+}

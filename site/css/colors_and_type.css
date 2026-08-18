@@ -1,0 +1,168 @@
+/* Skalo Design System — Foundations
+   Tokens + semantic type. Import fonts.css before this file. */
+
+:root {
+  /* ─── Palette (from real Skalo brand reference) ──────────────────
+     Brand is built on three things: a vivid orange, a deep cool dark,
+     and pure white. Orange is the lightning. Dark is the night sky it
+     strikes across. */
+  --orange:       #FF4C00;   /* primary brand color — the lightning */
+  --orange-deep:  #D63E00;   /* hover / pressed orange */
+  --orange-glow:  #FF7A33;   /* lighter end of bolt gradient */
+  --orange-tail:  #FFD8C0;   /* gradient fade tail (rare use) */
+
+  --dark:         #26252D;   /* cool charcoal — business-card surfaces */
+  --black:        #0E0E12;   /* deepest dark — full-bleed canvas */
+  --paper:        #FFFFFF;   /* pure white */
+  --paper-2:      #F5F5F6;   /* recessed white surface */
+
+  --ink:          #26252D;   /* text on light (matches Skalo dark) */
+  --ink-mute:     #6B6A75;
+  --paper-on-dark: #FFFFFF;
+  --mute-on-dark: #9C9BA5;
+
+  --hairline:    rgba(38, 37, 45, 0.12);
+  --hairline-on-dark: rgba(255, 255, 255, 0.10);
+  --rule:        var(--ink);
+
+  /* Backward-compatible aliases — old preview/site CSS uses these */
+  --void:        var(--dark);
+  --void-2:      var(--black);
+  --spark:       var(--orange);
+  --spark-ink:   #FFFFFF;    /* white text reads better on Skalo orange */
+  --arc:         var(--orange-deep);  /* legacy — now points to deep orange */
+
+  /* ─── Type families ───────────────────────────────────────────
+     Demo is Skalo's display/brand font (used in the wordmark).
+     Gilroy is the workhorse for body, UI, and labels.
+     Both uploaded by the brand team. */
+  --font-display: "Demo", "Gilroy", ui-sans-serif, system-ui, sans-serif;
+  --font-body:    "Gilroy", ui-sans-serif, system-ui, sans-serif;
+  --font-alt:     "Demo", "Gilroy", ui-sans-serif, system-ui, sans-serif;
+  --font-mono:    "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+
+  /* ─── Type scale ─────────────────────────────────────────────── */
+  --fs-display-xl: 5.5rem;     /* 88px */
+  --fs-display-lg: 3.75rem;    /* 60px */
+  --fs-h1:         2.5rem;     /* 40px */
+  --fs-h2:         1.75rem;    /* 28px */
+  --fs-h3:         1.25rem;    /* 20px */
+  --fs-body:       1rem;       /* 16px */
+  --fs-small:      0.875rem;   /* 14px */
+  --fs-caption:    0.8125rem;  /* 13px */
+  --fs-mono:       0.875rem;   /* 14px */
+
+  /* ─── Spacing (4px base) ─────────────────────────────────────── */
+  --s-1:   0.125rem; /* 2 */
+  --s-2:   0.25rem;  /* 4 */
+  --s-3:   0.5rem;   /* 8 */
+  --s-4:   0.75rem;  /* 12 */
+  --s-5:   1rem;     /* 16 */
+  --s-6:   1.5rem;   /* 24 */
+  --s-7:   2rem;     /* 32 */
+  --s-8:   3rem;     /* 48 */
+  --s-9:   4rem;     /* 64 */
+  --s-10:  6rem;     /* 96 */
+  --s-11:  8rem;     /* 128 */
+
+  /* ─── Radius ─────────────────────────────────────────────────── */
+  --r-0:   0;
+  --r-sm:  4px;
+  --r-md:  8px;
+  --r-lg:  16px;
+  --r-pill: 999px;
+
+  /* ─── Elevation (used sparingly) ─────────────────────────────── */
+  --shadow-card: 0 1px 0 0 rgba(10, 10, 15, 0.06),
+                 0 16px 32px -24px rgba(10, 10, 15, 0.18);
+
+  /* ─── Motion ─────────────────────────────────────────────────── */
+  --ease-skalo: cubic-bezier(0.6, 0, 0.2, 1);
+  --dur-ui:     220ms;
+  --dur-layout: 420ms;
+}
+
+/* ─── Resets & defaults ───────────────────────────────────────── */
+html { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+body {
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
+  line-height: 1.55;
+  color: var(--ink);
+  background: var(--paper);
+  margin: 0;
+}
+
+/* ─── Semantic type classes ───────────────────────────────────── */
+.t-display-xl,
+.t-display-lg,
+.t-h1,
+.t-h2 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  line-height: 1.02;
+  letter-spacing: -0.01em;
+  margin: 0;
+  text-wrap: balance;
+}
+
+.t-display-xl {
+  font-size: var(--fs-display-xl);
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  line-height: 0.94;
+}
+.t-display-lg {
+  font-size: var(--fs-display-lg);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 0.96;
+}
+.t-h1 { font-size: var(--fs-h1); font-weight: 700; }
+.t-h2 { font-size: var(--fs-h2); font-weight: 500; }
+
+.t-h3 {
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: var(--fs-h3);
+  line-height: 1.25;
+  letter-spacing: -0.005em;
+  margin: 0;
+}
+
+.t-body  { font-family: var(--font-body); font-size: var(--fs-body); line-height: 1.55; }
+.t-small { font-family: var(--font-body); font-size: var(--fs-small); line-height: 1.5; }
+
+.t-caption {
+  font-family: var(--font-body);
+  font-size: var(--fs-caption);
+  font-weight: 500;
+  line-height: 1.2;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.t-mono {
+  font-family: var(--font-mono);
+  font-size: var(--fs-mono);
+  font-weight: 400;
+  letter-spacing: -0.005em;
+}
+
+.t-num {
+  font-family: var(--font-mono);
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ─── Utility ─────────────────────────────────────────────────── */
+.bg-void   { background: var(--void); color: var(--paper-on-dark); }
+.bg-paper  { background: var(--paper); color: var(--ink); }
+.bg-spark  { background: var(--spark); color: var(--spark-ink); }
+.bg-arc    { background: var(--arc); color: var(--paper-on-dark); }
+
+.text-mute { color: var(--ink-mute); }
+.text-mute-on-dark { color: var(--mute-on-dark); }
+
+hr.hairline { border: 0; border-top: 1px solid var(--hairline); margin: 0; }
+hr.rule     { border: 0; border-top: 2px solid var(--rule); margin: 0; }
